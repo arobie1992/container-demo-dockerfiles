@@ -1,11 +1,11 @@
-FROM go-builder/linux/amd64:1.20.1 as builder
+FROM go-builder/linux/alpine/amd64:1.20.1 as builder
 
 WORKDIR /build
 RUN git clone https://github.com/arobie1992/container-demo.git repo
 WORKDIR /build/repo
 RUN go build
 
-FROM ubuntu:22.04
+FROM alpine:3.17.2
 WORKDIR /root
 COPY --from=builder /build/repo/container-demo ./
 CMD ./container-demo /root/logs/container-demo.log
