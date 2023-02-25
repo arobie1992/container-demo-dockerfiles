@@ -7,3 +7,5 @@ docker run -it --rm -v "$(pwd)"/logs:/root/logs -p 8080:8086 container-demo
 
 docker stop $(docker ps | grep container-demo | cut -c 1-12)
 
+https://stackoverflow.com/questions/35134713/disable-cache-for-specific-run-commands
+date +%s
