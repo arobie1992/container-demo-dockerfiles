@@ -9,4 +9,4 @@ RUN go build
 FROM alpine:3.17.2
 WORKDIR /root
 COPY --from=builder /build/repo/container-demo ./
-CMD ./container-demo /root/logs/container-demo.log
+ENTRYPOINT [ "./container-demo" ]
