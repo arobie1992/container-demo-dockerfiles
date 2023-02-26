@@ -6,7 +6,6 @@ docker build . -t container-demo:0.0.1 -t container-demo:latest --no-cache
 docker run -it --rm -v "$(pwd)"/logs:/root/logs -p 8080:8086 container-demo
 docker run --rm -v "$(pwd)"/logs:/root/logs -p 8080:8086 container-demo logs/container-demo.log
 
-docker stop $(docker ps | grep container-demo | cut -c 1-12)
+docker exec -it eager_volhard /bin/sh
 
-https://stackoverflow.com/questions/35134713/disable-cache-for-specific-run-commands
-date +%s
+docker stop $(docker ps | grep container-demo | cut -c 1-12)
