@@ -13,6 +13,7 @@ RUN apt-get update  && \
 
 ENV PATH="${PATH}:/usr/local/go/bin"
 
+RUN apt-get -y install git
 RUN mkdir /build
 
 ENTRYPOINT bin/bash

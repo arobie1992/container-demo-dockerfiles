@@ -13,6 +13,12 @@ RUN apt-get update  && \
 
 ENV PATH="${PATH}:/usr/local/go/bin"
 
+RUN apt-get -y install git
 RUN mkdir /build
 
-ENTRYPOINT bin/bash
+WORKDIR /build
+RUN git clone https://github.com/arobie1992/container-demo.git repo
+WORKDIR /build/repo
+RUN go build
+
+ENTRYPOINT [ "./container-demo" ]
